@@ -1,5 +1,6 @@
 import Users from '../model/user'
 
+
 // get : http://localhost:3000/api/users
 export async function getUsers(req, res){
     try {
@@ -21,7 +22,7 @@ export async function getUser(req, res){
             const user = await Users.findById(userId);
             res.status(200).json(user)
         }
-        res.status(404).json({ error : "User not Selected...!"});
+        res.status(404).json({ error : "User not Selected Get...!"});
     } catch (error) {
         res.status(404).json({ error: "Cannot get the User...!"})
     }
@@ -50,7 +51,7 @@ export async function putUser(req, res){
             const user = await Users.findByIdAndUpdate(userId, formData);
             res.status(200).json(user)
         }
-        res.status(404).json( { error: "User Not Selected...!"})
+        res.status(404).json( { error: "User Not Selected Update...!"})
     } catch (error) {
         res.status(404).json({ error: "Error While Updating the Data...!"})
     }
@@ -66,7 +67,7 @@ export async function deleteUser(req, res){
             return res.status(200).json(user)
         }
 
-        res.status(404).json({ error: "User Not Selected...!"})
+        res.status(404).json({ error: "User Not Selected delete...!"})
 
     } catch (error) {
         res.status(404).json({ error: "Error While Deleting the User...!"})
